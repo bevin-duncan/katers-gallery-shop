@@ -1,8 +1,12 @@
 import React,{ useState } from 'react'
 import { useHistory } from "react-router-dom";
+import ProductsCard from "./ProductsCard"
 
-function EditProduct({ product }) {
-    // let history = useHistory();
+function EditProduct({ products }) {
+    let history = useHistory();
+
+
+
 
     // const [prodFormData, setProdFormData] = useState ({ 
     //     name: product.name,
