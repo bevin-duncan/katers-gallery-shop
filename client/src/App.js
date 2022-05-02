@@ -16,17 +16,17 @@ function App() {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
   
-  // useEffect(() => {
-  //   getProds();
-  // }, []);
+  useEffect(() => {
+    getProds();
+  }, []);
   
-  // const getProds = () => {
-  //   fetch("/products")
-  //   .then((r) => r.json())
-  //   .then(setProducts);
-  // }
+  const getProds = () => {
+    fetch("/products")
+    .then((r) => r.json())
+    .then(setProducts);
+  }
  
-
+console.log(products)
 
   
   useEffect(() => {
@@ -73,7 +73,7 @@ function App() {
 
           <Route exact path="/shop">
               <ProductsContainer 
-              // products={products}
+                products={products}
                setUser={setUser} 
                setIsAuthenticated={setIsAuthenticated}
                user={user}
@@ -101,14 +101,16 @@ function App() {
             />
           </Route>
 
-          {user&&user.admin?<Route path="/admin">
+          {user && user.admin ?
+          <Route path="/admin">
             <AdminPage
-              // products={products}
+              setProducts={setProducts}
+              products={products}
               setUser={setUser} 
               setIsAuthenticated={setIsAuthenticated}
               user={user}
             />
-          </Route>:null} 
+          </Route> : null} 
 
         </Switch>
         <div className='footer'>

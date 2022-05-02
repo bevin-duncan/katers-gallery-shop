@@ -48,16 +48,20 @@ function NavBar({ setIsAuthenticated, setUser, user }) {
       </NavLink>
 
 
-      {user&&user.admin?<NavLink
-        to="/Admin"
-        exact
-        className="ui center floated button"
-        activeStyle={{
-          background: "#E6E6E8",
-        }}
-      >
-        Admin
-      </NavLink>:null}
+      {user && user.admin ? 
+        <NavLink
+          to="/admin"
+          exact
+          className="ui center floated button"
+          activeStyle={{
+            background: "#E6E6E8",
+          }}
+        >
+          Admin
+        </NavLink>
+      :
+      null
+      }
 
       <button className="ui center floated button" onClick={()=>logout()}>Logout</button>
         {/* make this togglable depending on login/out status? */}
