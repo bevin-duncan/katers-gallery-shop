@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-    before_action: :find_cart
+    before_action :find_cart
 
 
     def index 
