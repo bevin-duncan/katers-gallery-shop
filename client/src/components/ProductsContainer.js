@@ -4,9 +4,9 @@ import ProductsCard from "./ProductsCard"
 import NavBar from "./NavBar"
 
 
-function ProductsContainer({ setIsAuthenticated, setUser, user }) {
-
+function ProductsContainer({ setIsAuthenticated, setUser, user, cart, setCart }) {
   const [products, setProducts] = useState([]);
+  // const [cart, setCart] = useState([]);
   
   useEffect(() => {
     getProds();
@@ -23,10 +23,15 @@ function ProductsContainer({ setIsAuthenticated, setUser, user }) {
   return (
     
     <div>
-        
         <br></br>
         <div className="hkjh">
-          {products && products.map((product) => <ProductsCard key={product.id} product={product} />)}
+          {products && products.map((product, index) => {
+            return (
+              <div key={product.id}>
+                <ProductsCard product={product} cart={cart} setCart={setCart}/>
+              </div>
+            )
+          })}
         </div>
     </div>
   )

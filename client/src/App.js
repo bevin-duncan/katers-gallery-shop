@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar"
 import AdminPage from "./components/AdminPage"
 import Contact from "./components/Contact"
 import Gallery from "./components/Gallery"
+import Cart from "./components/Cart"
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
@@ -15,6 +17,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([])
   
   useEffect(() => {
     getProds();
@@ -73,7 +76,9 @@ console.log(products)
 
           <Route exact path="/shop">
               <ProductsContainer 
-                products={products}
+              cart={cart}
+              setCart={setCart}
+              products={products}
                setUser={setUser} 
                setIsAuthenticated={setIsAuthenticated}
                user={user}
@@ -83,6 +88,15 @@ console.log(products)
           <Route exact path="/contact">
             <Contact
               setUser={setUser} 
+              setIsAuthenticated={setIsAuthenticated}
+              user={user}
+            />
+          </Route>
+
+          <Route exact path="/cart">
+            <Cart
+              setCart={setCart} 
+              cart={cart}
               setIsAuthenticated={setIsAuthenticated}
               user={user}
             />
