@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { Modal, Button, Card } from 'react-bootstrap';
+import CheckoutButton  from './CheckoutButton';
 
-function Cart({cart}) {
+function Cart({cart, totalPrice, setTotalPrice, setCart}) {
   const [showModal, setShowModal] = useState(false);
-
-
+  const [order, setOrder] = useState([]);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+  
 
+  const handleOrder = (e, cart) => {
+    e.preventDefault();
+    setOrder([...order, cart]);
+    console.log("THE ORDER", order)
+  } 
 
   return (
     <>
-      <Button variant="secondary" onClick={handleShow}>`${cart.length} Items`</Button>
+      <Button variant="secondary" onClick={handleShow}>{cart.length} Items</Button>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Your Cart</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -31,7 +37,7 @@ function Cart({cart}) {
                         <h5>Quantity: 1</h5>
                         <h5>SKU: {product.sku}</h5>
                 </Card.Text>
-                <Button variant="primary">Remove From Cart</Button>
+                <Button  variant="primary">Remove From Cart</Button>
               </Card.Body>
             </Card> 
             )
@@ -39,8 +45,9 @@ function Cart({cart}) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Checkout</Button>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <CheckoutButton price={totalPrice} setTotalPrice={setTotalPrice} setCart={setCart}/>
+          {/* <Button onClick={(e)=> handleOrder(e, cart)} variant="primary">Checkout</Button> */}
         </Modal.Footer>
       </Modal>
     </>

@@ -11,14 +11,14 @@ function Order({order, product}) {
 
   return (
     <>
-      <Button variant="secondary" onClick={handleShow}>`${order.length} Items`</Button>
+      <Button variant="secondary" onClick={handleShow}>Your Orders</Button>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>`${order.id}`</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-        {order && order.map((product, index) => {
+        {order && order.map((order, index) => {
             return (
               <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={product.image}/>
@@ -31,7 +31,7 @@ function Order({order, product}) {
                         <h5>Quantity: 1</h5>
                         <h5>SKU: {product.sku}</h5>
                 </Card.Text>
-                <Button variant="primary">Remove From Cart</Button>
+                {/* <Button variant="primary">Remove From Cart</Button> */}
               </Card.Body>
             </Card> 
             )
@@ -39,7 +39,7 @@ function Order({order, product}) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
           {/* <Button variant="primary">Checkout</Button> */}
         </Modal.Footer>
       </Modal>

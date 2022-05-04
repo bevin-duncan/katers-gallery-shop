@@ -2,12 +2,13 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
 
-function ProductsCard({ product, cart, setCart})  {
+function ProductsCard({ product, cart, setCart, totalPrice, setTotalPrice})  {
 
 const handleAddToCart = (e, product) => {
   e.preventDefault();
   setCart([...cart, product]);
   console.log("THE CART", cart)
+  setTotalPrice(totalPrice + product.price)
 } 
 
 

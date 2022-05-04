@@ -12,6 +12,7 @@ end
 
 def create 
     new_order = Order.create!(order_params)
+    session[:current_user] = new_order.id
     render json: new_order, status: :created
 end
 

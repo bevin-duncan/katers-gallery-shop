@@ -17,7 +17,8 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   
   useEffect(() => {
     getProds();
@@ -75,7 +76,9 @@ console.log(products)
           </Route>
 
           <Route exact path="/shop">
-              <ProductsContainer 
+              <ProductsContainer
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice} 
               cart={cart}
               setCart={setCart}
               products={products}
@@ -99,6 +102,8 @@ console.log(products)
               cart={cart}
               setIsAuthenticated={setIsAuthenticated}
               user={user}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
             />
           </Route>
 
