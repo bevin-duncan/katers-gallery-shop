@@ -31,7 +31,7 @@ function AdminProdCard({product, products, setProducts}) {
 
 
         <Card>
-        <Card.Img variant="top" src={product.image} style={{height:"396px", "object-fit":"contain"}}/>
+        <Card.Img variant="top" className="admin-card-img" src={product.image} style={{height:"396px", "object-fit":"contain"}}/>
         <Card.Body style={{height:"100%"}}>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>

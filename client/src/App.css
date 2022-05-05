@@ -21,3 +21,29 @@ nav{
   flex-direction: grid;
 }
 
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img:hover,
+img:hover { 
+  margin-top: 8px;
+  vertical-align: middle;
+  transform: scale(2);
+    position: flex;
+    transition: transform 0.25s ease;
+}
+
+
+.gallery-container {
+  padding-top: 50px;
+}
