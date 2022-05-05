@@ -6,10 +6,9 @@ import SignUp from "./components/SignUp"
 import NavBar from "./components/NavBar"
 import AdminPage from "./components/AdminPage"
 import Contact from "./components/Contact"
-import Gallery from "./components/Gallery"
-import Cart from "./components/Cart"
+import PhotoGallery from "./components/PhotoGallery"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-// import Header from "react-bootstrap";
+
 
 import './App.css';
 
@@ -46,22 +45,22 @@ const getProds = () => {
 //     }
 // }
 
-// useEffect(() => {
-//   fetch('/authorize')
-//   .then((res) => {
-//     if (res.ok) {
-//       res.json()
-//       .then((user) => {
-//         setIsAuthenticated(true);
-//         setUser(user);
-//       });
-//       // getProds();
-//     }
-//     else {
-//       console.log("We received errors...")
-//     }
-//   });
-// },[]);
+useEffect(() => {
+  fetch('/authorize')
+  .then((res) => {
+    if (res.ok) {
+      res.json()
+      .then((user) => {
+        setIsAuthenticated(true);
+        setUser(user);
+      });
+      // getProds();
+    }
+    else {
+      console.log("We received errors...")
+    }
+  });
+},[]);
 
   function onLogin(newUser) {
     setUser([...user, newUser])
@@ -86,7 +85,7 @@ const getProds = () => {
         <Switch>
           <Route exact path="/">
             {!isAuthenticated ? <Redirect to="/login" /> :
-              <Gallery
+              <PhotoGallery
                 setUser={setUser} 
                 setIsAuthenticated={setIsAuthenticated}
                 user={user}

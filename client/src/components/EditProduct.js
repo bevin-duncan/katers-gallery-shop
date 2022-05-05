@@ -21,7 +21,7 @@ function EditProduct({ product, products, setProducts }) {
     }
 
     function handleSubmit(e) { 
-        e.preventDefault();
+        // e.preventDefault();
 
         const editedProd = {
             id: product.id,
@@ -46,7 +46,7 @@ function EditProduct({ product, products, setProducts }) {
                 return product;
             }))
         })
-        history.push("/products")
+        history.push("/admin")
     }
 
     return (
