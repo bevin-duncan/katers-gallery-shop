@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import ProductsContainer from "./components/ProductsContainer"
 import Login from "./components/Login"
 import SignUp from "./components/SignUp"
@@ -9,6 +9,7 @@ import Contact from "./components/Contact"
 import Gallery from "./components/Gallery"
 import Cart from "./components/Cart"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import Header from "react-bootstrap";
 
 import './App.css';
 
@@ -24,68 +25,86 @@ function App() {
     getProds();
   }, []);
   
-  const getProds = () => {
-    fetch("/products")
-    .then((r) => r.json())
-    .then(setProducts);
-  }
- 
-console.log(products)
+const getProds = () => {
+  fetch("/products")
+  .then((r) => r.json())
+  .then(setProducts);
+}
 
-  
-  useEffect(() => {
-    fetch('/authorize')
-    .then((res) => {
-      if (res.ok) {
-        res.json()
-        .then((user) => {
-          setIsAuthenticated(true);
-          setUser(user);
-        });
-      }
-      else {
-        console.log("We received errors...")
-      }
-    });
-  },[]);
+// const authorize = () => {
+//   fetch('/authorize')
+//   .then((res) => {
+//     if (res.ok) {
+//       res.json()
+//       .then((user) => {
+//         setIsAuthenticated(true);
+//         setUser(user);
+//       });
+//     }
+//     else {
+//       console.log("We received errors...")
+//     }
+// }
+
+// useEffect(() => {
+//   fetch('/authorize')
+//   .then((res) => {
+//     if (res.ok) {
+//       res.json()
+//       .then((user) => {
+//         setIsAuthenticated(true);
+//         setUser(user);
+//       });
+//       // getProds();
+//     }
+//     else {
+//       console.log("We received errors...")
+//     }
+//   });
+// },[]);
 
   function onLogin(newUser) {
     setUser([...user, newUser])
   }
-  
-  if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
-  if (!user) return <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
-
+  // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+  // if (!user) return <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
   return (
     <Router> 
       <div className="background">
       <NavBar 
-      setUser={setUser} 
-      setIsAuthenticated={setIsAuthenticated}
-      user={user}/>
+        setUser={setUser} 
+        setIsAuthenticated={setIsAuthenticated}
+        isAuthenticated={isAuthenticated}
+        user={user}
+        setCart={setCart} 
+        cart={cart}
+        totalPrice={totalPrice}
+        setTotalPrice={setTotalPrice}
+      />
         <Switch>
-        
           <Route exact path="/">
-            <Gallery
-              setUser={setUser} 
-              setIsAuthenticated={setIsAuthenticated}
-              user={user}
-            />
+            {!isAuthenticated ? <Redirect to="/login" /> :
+              <Gallery
+                setUser={setUser} 
+                setIsAuthenticated={setIsAuthenticated}
+                user={user}
+              />
+            }
           </Route>
 
           <Route exact path="/shop">
-              <ProductsContainer
-              totalPrice={totalPrice}
-              setTotalPrice={setTotalPrice} 
-              cart={cart}
-              setCart={setCart}
-              products={products}
-               setUser={setUser} 
-               setIsAuthenticated={setIsAuthenticated}
-               user={user}
-              />
+          {!isAuthenticated ? <Redirect to="/login" /> :
+            <ProductsContainer
+            totalPrice={totalPrice}
+            setTotalPrice={setTotalPrice} 
+            cart={cart}
+            setCart={setCart}
+            products={products}
+            user={user}
+            />
+          }
           </Route>
 
           <Route exact path="/contact">
@@ -96,7 +115,7 @@ console.log(products)
             />
           </Route>
 
-          <Route exact path="/cart">
+          {/* <Route exact path="/cart">
             <Cart
               setCart={setCart} 
               cart={cart}
@@ -105,7 +124,7 @@ console.log(products)
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
             />
-          </Route>
+          </Route> */}
 
           <Route path="/signup">
             <SignUp
@@ -114,22 +133,20 @@ console.log(products)
           </Route>
 
           <Route path="/login">
-            <Login
-              setUser={setUser} 
-              setIsAuthenticated={setIsAuthenticated} 
-            />
+            {isAuthenticated ? <Redirect to="/shop" /> : <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />}
           </Route>
 
-          {user && user.admin ?
           <Route path="/admin">
-            <AdminPage
-              setProducts={setProducts}
-              products={products}
-              setUser={setUser} 
-              setIsAuthenticated={setIsAuthenticated}
-              user={user}
-            />
-          </Route> : null} 
+            {!isAuthenticated ? <Redirect to="/login" /> :
+              <AdminPage
+                setProducts={setProducts}
+                products={products}
+                setUser={setUser} 
+                setIsAuthenticated={setIsAuthenticated}
+                user={user}
+              />
+            }
+          </Route> 
 
         </Switch>
         <div className='footer'>

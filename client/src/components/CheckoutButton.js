@@ -1,23 +1,42 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
 const CheckoutButton = ({price, setTotalPrice, setCart }) => {
     const [order, setOrder] = useState([])
+    const [message, setMessage] = useState("");
     const priceForStripe = price * 100;
     const publishableKey = process.env.REACT_APP_STRIPE;
 
-    const newOrder = {
-        total_price: order.totalprice,
+    const Message = ({ message }) => (
+        <section>
+          <p>{message}</p>
+        </section>
+      );
+
+
+
+    useEffect(() => {
+        getOrders();
+      }, []);
+      
+      const getOrders = () => {
+        fetch("/orders")
+        .then((r) => r.json())
+        .then(console.log);
+      }
+     
+      const newOrder = {
+        total_price: order.total_price,
         ordered: order.ordered 
      }
 
-     function onCreateOrder(newProd) {
+     function onCreateOrder(newOrder) {
         setOrder([...order, newOrder])
       }
 
     const onSuccess = token => {
         console.log(token);
-        alert('Payment Successful!');
+        alert('Order placed! You will receive an email confirmation.');
        
         
     

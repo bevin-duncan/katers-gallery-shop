@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Card } from 'react-bootstrap';
+import { Text, Modal, Button, Card } from 'react-bootstrap';
 import CheckoutButton  from './CheckoutButton';
 
 function Cart({cart, totalPrice, setTotalPrice, setCart}) {
@@ -9,35 +9,36 @@ function Cart({cart, totalPrice, setTotalPrice, setCart}) {
   const handleShow = () => setShowModal(true);
   
 
-  const handleOrder = (e, cart) => {
-    e.preventDefault();
-    setOrder([...order, cart]);
-    console.log("THE ORDER", order)
-  } 
-
+  // const handleOrder = (e, cart) => {
+  //   e.preventDefault();
+  //   setOrder([...order, cart]);
+  //   console.log("THE ORDER", order)
+  // } 
   return (
     <>
-      <Button variant="secondary" onClick={handleShow}>{cart.length} Items</Button>
+      <Button variant="link" onClick={handleShow} style={{"text-decoration":"none", color:"#45A29E"}}>{cart.length > 0 ? `Cart(${cart.length})` : `Cart`}</Button>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Your Cart</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-        {cart && cart.map((product, index) => {
+        {cart.length > 0 && cart.map((product, index) => {
             return (
               <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={product.image}/>
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
-                <h4>Name: {product.name}</h4>
-                        <h5>Description: {product.description}</h5>
-                        <h5>${product.price}</h5>
-                        <h5>Quantity: 1</h5>
-                        <h5>SKU: {product.sku}</h5>
+                  Name: {product.name}
+                  <br/>
+                  Description: {product.description}
+                  <br/>
+                  ${product.price}
+                  <br/>
+                  Quantity: 1
                 </Card.Text>
-                <Button  variant="primary">Remove From Cart</Button>
+                <Button variant="primary">Remove From Cart</Button>
               </Card.Body>
             </Card> 
             )

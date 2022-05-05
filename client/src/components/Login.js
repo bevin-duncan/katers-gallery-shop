@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Signup from './SignUp';
 
 function Login({ setUser, setIsAuthenticated }) {
@@ -35,40 +36,30 @@ function Login({ setUser, setIsAuthenticated }) {
   }
 
   return (
-    <div className="background">
-      <h3 className="center-content">Login</h3>
-      <div className="form-border center-content">
-        <div className="ui grid">
-          <form 
-              className="ui two fields form center"
-              onSubmit={handleSubmit}
-            >
-            <label> Username
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </label>
-            <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            <br></br>
-            <div>
+    <div className="auth-wrapper">
+      <div className="auth-inner">
+        <form onSubmit={handleSubmit}>
+          <h3>Sign In</h3>
+          <div className="form-group">
+            <label>Username</label>
+            <input type="username" className="form-control" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          </div>
+          <div className="form-group">
+            <div className="custom-control custom-checkbox" id="remember-me">
+              <input type="checkbox" className="custom-control-input" id="customCheck1" />
+              <label className="custom-control-label" htmlFor="customCheck1">&nbsp;Remember me</label>
             </div>
-            <br></br>
-            <button className="ui submit button center" type="submit">Login</button>
-          </form>
-        </div>
-    </div>
-    <Signup onLogin={setUser}/>
-    <div className='footer'>
-        
-      </div> 
+          </div>
+          <button type="submit" id="form-button" className="btn btn-primary btn-block">Submit</button>               
+            <p className="forgot-password text-right">Don't have an account?&nbsp;
+              <Link to={"/signup"}>Sign Up</Link>
+            </p>
+        </form>
+      </div>
     </div>
   );
 }

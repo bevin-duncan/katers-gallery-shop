@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from "react-router-dom";
+import { Button, NavItem } from "react-bootstrap";
+import  Cart  from "./Cart.js";
 
-function NavBar({ setIsAuthenticated, setUser, user }) {
+function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, totalPrice, setTotalPrice, setCart }) {
 
   const logout = () => {
     fetch('/logout',{
@@ -13,86 +15,72 @@ function NavBar({ setIsAuthenticated, setUser, user }) {
     })
   }
   return ( 
-    <div>
-        <NavLink
-        to="/"
-        exact
-        className="ui center floated button"
-        activeStyle={{
-          background: "#E6E6E8",
-        }}
-      >
-        Gallery
-      </NavLink> 
-
-      <NavLink
-        to="/shop"
-        exact
-        className="ui center floated button"
-        activeStyle={{
-          background: "#E6E6E8",
-        }}
-      >
-        Merch
-      </NavLink>
-      
-      <NavLink
-        to="/contact"
-        exact
-        className="ui center floated button"
-        activeStyle={{
-          background: "#E6E6E8",
-        }}
-      >
-        Contact
-      </NavLink>
-      
-      <NavLink
-        to="/cart"
-        exact
-        className="ui center floated button"
-        activeStyle={{
-          background: "#E6E6E8",
-        }}
-      >
-        Cart
-      </NavLink>
-
-
-      {user && user.admin ? 
-        <NavLink
-          to="/admin"
-          exact
-          className="ui center floated button"
-          activeStyle={{
-            background: "#E6E6E8",
-          }}
-        >
-          Admin
-        </NavLink>
-      :
-      null
-      }
-
-      
-      {
-      // user ?
-      //   <NavLink
-      //     to="/cart"
-      //     exact
-      //     className="ui center floated button"
-      //     activeStyle={{
-      //       background: "#E6E6E8",
-      //     }}
-      //   >
-      //     Cart
-      //   </NavLink>
-      } 
-
-      <button className="ui center floated button" onClick={()=>logout()}>Logout</button>
-        {/* make this togglable depending on login/out status? */}
-    </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="https://www.peterstaker.com"> K A T E R</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{width:"100%"}}>
+            <div className="navbar-nav" style={{width:"100%"}}>
+              <NavItem>
+                <NavLink
+                  to="/"
+                  exact
+                  className="nav-link"
+                >
+                  Gallery
+                </NavLink> 
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/shop"
+                  exact
+                  className="nav-link"
+                >
+                  Merch
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/contact"
+                  exact
+                  className="nav-link"
+                >
+                  Contact
+                </NavLink>
+              </NavItem>
+              {user && user.admin ?
+                <NavItem> 
+                  <NavLink
+                    to="/admin"
+                    exact
+                    className="nav-link"
+                  >
+                    Admin
+                  </NavLink>
+                </NavItem>
+              : null}
+              <div className="ms-auto" style={{display:"inline-flex"}}>
+                <NavItem>
+                  <Cart
+                    setCart={setCart} 
+                    cart={cart}
+                    totalPrice={totalPrice}
+                    setTotalPrice={setTotalPrice}
+                  />
+                </NavItem>
+                  {isAuthenticated ?
+                  <NavItem>
+                    <Button className="btn btn-secondary" type="button" onClick={()=>logout()}>Logout</Button>
+                  </NavItem>
+                  : null}
+              </div>
+            </div>
+          </div>
+      </div>
+    </nav>  
   )
 }
 
-export default NavBar
+export default NavBar;

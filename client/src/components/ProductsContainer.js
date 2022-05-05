@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 // import NavBar from "./NavBar"
 import ProductsCard from "./ProductsCard"
 import NavBar from "./NavBar"
+import {Col, Row, Container} from "react-bootstrap"
 
-
-function ProductsContainer({ setIsAuthenticated, setUser, user, cart, setCart, totalPrice, setTotalPrice }) {
+function ProductsContainer({ user, cart, setCart, totalPrice, setTotalPrice }) {
   const [products, setProducts] = useState([]);
   // const [cart, setCart] = useState([]);
   
@@ -17,23 +17,24 @@ function ProductsContainer({ setIsAuthenticated, setUser, user, cart, setCart, t
     .then((r) => r.json())
     .then(setProducts);
   }
- 
-  console.log("PROD", products)
   
   return (
-    
-    <div>
-        <br></br>
-        <div className="hkjh">
-          {products && products.map((product, index) => {
-            return (
-              <div key={product.id}>
-                <ProductsCard product={product} cart={cart} setCart={setCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
-              </div>
-            )
-          })}
-        </div>
-    </div>
+    <Container className="mt-5">
+      <Row xs={1} md={3} className="g-4">
+        <>
+            <br></br>
+              {products && products.map((product, index) => {
+                return (
+                  <Col>
+                  <React.Fragment key={index}>
+                    <ProductsCard product={product} cart={cart} setCart={setCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
+                  </React.Fragment>
+                  </Col>
+                )
+              })}
+        </>
+      </Row>
+    </Container>
   )
 }
 

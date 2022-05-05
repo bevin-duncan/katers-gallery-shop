@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-before_action :find_order
+before_action :find_order, only: [:update, :show, :destroy]
 
 def index
     render json: Order.all
