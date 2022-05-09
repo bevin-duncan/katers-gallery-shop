@@ -6,10 +6,7 @@
   background-color: black;
   margin-top: 25px
 }
-/* 
-.Col {
-  margin-bottom: 15px
-} */
+
 
 nav{
   flex-direction: row;
@@ -30,20 +27,56 @@ nav{
 
 /* Create two equal columns that sits next to each other */
 .column {
-  flex: 50%;
+  flex: 25%;
   padding: 0 4px;
+  max-width: 25%;
 }
 
-.column img:hover,
+.gallery-img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  object-fit: contain;
+}
+ 
+.gallery-img:hover {
+  margin-top:8px;
+  vertical-align: middle;
+  transform: scale(2);
+  position: flex;
+  transition: transform 0.25s ease;
+}
+
+/*   
+ .column img:hover,
 img:hover { 
   margin-top: 8px;
   vertical-align: middle;
   transform: scale(2);
     position: flex;
     transition: transform 0.25s ease;
-}
+} */
 
 
 .gallery-container {
   padding-top: 50px;
+  max-width: 100vw;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
 }

@@ -6,7 +6,7 @@ import SignUp from "./components/SignUp"
 import NavBar from "./components/NavBar"
 import AdminPage from "./components/AdminPage"
 import Contact from "./components/Contact"
-import PhotoGallery from "./components/PhotoGallery"
+import PhotoGallery from "./components/PhotoGallery/PhotoGallery"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 

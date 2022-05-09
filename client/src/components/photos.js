@@ -12,7 +12,7 @@ export const photos = [
       height: 1
     },
     {
-      src: "3.jpg",
+      src: "6.jpg",
 
       width: 3,
       height: 4
@@ -30,7 +30,7 @@ export const photos = [
       height: 4
     },
     {
-      src: "6.jpg",
+      src: "3.jpg",
 
       width: 4,
       height: 3

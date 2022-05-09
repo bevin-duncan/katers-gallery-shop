@@ -14,6 +14,10 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
         setUser(null)
     })
   }
+
+
+  
+
   return ( 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -42,13 +46,12 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink
-                  to="/contact"
-                  exact
+                
+                 <a data-tf-popup="w6CMsz3F" data-tf-iframe-props="title=Kater.com Contact template TG (copy)" data-tf-medium="snippet"
                   className="nav-link"
                 >
                   Contact
-                </NavLink>
+                  </a>
               </NavItem>
               {user && user.admin ?
                 <NavItem> 
