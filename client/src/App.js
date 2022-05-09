@@ -103,7 +103,7 @@ useEffect(() => {
             products={products}
             user={user}
             />
-          }
+           } 
           </Route>
 
           <Route exact path="/contact">
@@ -132,7 +132,7 @@ useEffect(() => {
           </Route>
 
           <Route path="/login">
-            {isAuthenticated ? <Redirect to="/shop" /> : <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />}
+            {isAuthenticated ? <Redirect to="/" /> : <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />}
           </Route>
 
           <Route path="/admin">
