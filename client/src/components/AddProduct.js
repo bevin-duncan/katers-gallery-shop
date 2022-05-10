@@ -65,6 +65,7 @@ function AddProduct({ products, setProducts }) {
     }
   
     return (
+      <div className="add-form">
       <div className="background">
           <div className="form-border center-content">
             <div className="ui grid">
@@ -131,6 +132,7 @@ function AddProduct({ products, setProducts }) {
               </form>
             </div>
           </div>
+        </div>
         </div>
     )
   }
