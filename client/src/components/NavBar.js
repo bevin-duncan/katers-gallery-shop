@@ -23,7 +23,7 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
     <nav className="navbar navbar-expand-lg navbar-light bg-#0B0B0B">
       <div className="container-fluid">
         <a className="navbar-brand"> 
-        <img src="./logo.png" width="400" height="100" alt=""/>
+        <img src="./logo.png" width="150" height="50" alt=""/>
         </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
