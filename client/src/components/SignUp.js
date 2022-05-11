@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { Card, Container, Button } from "react-bootstrap"
+import { useHistory } from "react-router-dom"
 
   function Signup({ onLogin }) {
     const [errors, setErrors] = useState([]);
+    const history = useHistory("");
 
     const [formData, setFormData] = useState({
       username: "",
@@ -70,10 +73,14 @@ import React, { useState } from 'react'
             r.json().then((err) => setErrors(err.errors));
           }
         })
-        .then(setFormData(initialFormState));
+        .then(setFormData(initialFormState))
+        history.push("/login");
     }
   
     return (
+      <Container style={{width: "500px"}}>
+      <Card >
+        <Card.Body >
       <div className="background">
         <h3 className="center-content">Signup</h3>
         <div className="form-border center-content">
@@ -95,6 +102,7 @@ import React, { useState } from 'react'
                 value={formData.username}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
               <label htmlFor="password">Password:</label>
               <input
                 name="password"
@@ -103,6 +111,7 @@ import React, { useState } from 'react'
                 value={formData.password}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
               <label htmlFor="password_confirmation">Confirm Password:</label>
               <input
                 name="passwordConfirmation"
@@ -111,6 +120,7 @@ import React, { useState } from 'react'
                 value={formData.passwordConfirmation}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
               <label>First Name:</label>
               <input
                 name="firstname"
@@ -119,6 +129,7 @@ import React, { useState } from 'react'
                 value={formData.firstname}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
               <label>Last Name:</label>
               <input
                 name="lastname"
@@ -127,6 +138,7 @@ import React, { useState } from 'react'
                 value={formData.lastname}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
               <label>Street:</label>
               <input
                 name="address"
@@ -136,6 +148,7 @@ import React, { useState } from 'react'
                 value={formData.address}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
                <label>City:</label>
               <input
                 name="city"
@@ -144,6 +157,7 @@ import React, { useState } from 'react'
                 value={formData.city}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
                <label>State:</label>
               <input
                 name="state"
@@ -152,6 +166,7 @@ import React, { useState } from 'react'
                 value={formData.state}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
                <label>Zip:</label>
               <input
                 name="zip"
@@ -160,10 +175,7 @@ import React, { useState } from 'react'
                 value={formData.zip}
                 onChange={(e) => handleChange(e)}
               />
-
-              {/* city 
-              state
-              zip */}
+              <br></br>
               <label>Phone Number:</label>
               <input
                 name="phone"
@@ -173,6 +185,7 @@ import React, { useState } from 'react'
                 value={formData.phone}
                 onChange={(e) => handleChange(e)}
               />
+              <br></br>
                <label>Email:</label>
               <input
                 name="email"
@@ -182,14 +195,18 @@ import React, { useState } from 'react'
                 value={formData.email}
                 onChange={(e) => handleChange(e)}
               />
-              {/* email */}
               <br></br>
               <br></br>
-              <button className="ui submit button center" type="submit">Sign Up</button>
+              <Button variant="primary" type="submit">Sign Up</Button>
             </form>
           </div>
         </div>
       </div>
+      </Card.Body>
+      </Card>
+      </Container>
+      
+        
     );
   }
 

@@ -149,8 +149,7 @@ useEffect(() => {
 
         </Switch>
         <div className='footer'>
-          <div>K A T E R   |  //Flatiron School</div>   
-          <div>Created By: Bevin Duncan | GitHub: <a href="https://github.com/bevin-duncan">Bevin</a></div>
+          <div>K A T E R   |  //Flatiron School Created By: Bevin Duncan | <a href="https://github.com/bevin-duncan">GitHub</a></div>
         </div> 
       </div>
     </Router>

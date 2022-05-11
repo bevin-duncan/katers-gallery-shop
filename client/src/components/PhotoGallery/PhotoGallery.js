@@ -2,32 +2,9 @@ import React, { useEffect } from 'react'
 import { render } from "react-dom";
 import Gallery from "react-photo-gallery";
 import { photos } from "../photos";
-// eslint-disable-next-line import/no-webpack-loader-syntax
-// import '!!css-loader!./PhotoGallery.module.css';
-// import style from "./PhotoGallery.module.css"
 
-// const updatedStyles = {
-//     "margin-top": "8px",
-//     "vertical-align": "middle",
-//     "transform": "scale(2)",
-//     "position": "flex",
-//     "transition": "transform 0.25s ease"
-// };
-// const img = document.querySelectorAll("img");
-// const reset = img.styles;
-
-// const innerText = `img.setAttribute('onMouseOver', 'this.style=${updatedStyles}'); img.setAttribute('onMouseOut', 'this.style=${reset}')`;
-
-
-// /* popout the browser and maximize to see more rows! -> */
 const PhotoGallery = () => {
     
-    // useEffect(() => {
-    //     const script = document.createElement("script");
-    //     script.type="text/javascript";
-    //     script.innerText=innerText;
-    //     document.body.appendChild(script);
-    // }, []);
 
     const firstIndex = (photos.length - photos.length%4)/4;
     const secondIndex = firstIndex * 2;

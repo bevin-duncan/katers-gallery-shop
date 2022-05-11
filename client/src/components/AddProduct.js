@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Card, Modal, Container, Button} from "react-bootstrap"
+import { Card, Container, Button} from "react-bootstrap"
+import { useHistory } from "react-router-dom"
 
 function AddProduct({ products, setProducts }) {
+  const history = useHistory("");
   
     const [errors, setErrors] = useState([]);
   
@@ -56,7 +58,8 @@ function AddProduct({ products, setProducts }) {
         } 
       })
       .then(setFormData(initialFormState));
-    }
+      history.push("/shop")
+    } 
   
     function handleChange(e) {
       setFormData({

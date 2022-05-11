@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import { useHistory } from "react-router-dom"
 
 const CheckoutButton = ({price, setTotalPrice, setCart }) => {
     const [order, setOrder] = useState([])
     const [message, setMessage] = useState("");
     const priceForStripe = price * 100;
+    const history = useHistory("");
     const publishableKey = process.env.REACT_APP_STRIPE;
 
     const Message = ({ message }) => (
@@ -53,15 +55,14 @@ const CheckoutButton = ({price, setTotalPrice, setCart }) => {
             }
           })
 
-        // to do: [x]clear cart, []update quantities in backend, []save order to backend
-        // []patch to update quantities
-        // []post order details
         afterSuccessfulPayment();
+        
     };
     
     const afterSuccessfulPayment = () => {
         setTotalPrice(0);
          setCart([])
+         history.push("/shop")
     }
 
     return (

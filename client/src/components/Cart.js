@@ -4,16 +4,11 @@ import CheckoutButton  from './CheckoutButton';
 
 function Cart({cart, totalPrice, setTotalPrice, setCart}) {
   const [showModal, setShowModal] = useState(false);
-  const [order, setOrder] = useState([]);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
   
 
-  // const handleOrder = (e, cart) => {
-  //   e.preventDefault();
-  //   setOrder([...order, cart]);
-  //   console.log("THE ORDER", order)
-  // } 
+
   return (
     <>
       <Button variant="link" onClick={handleShow} style={{"text-decoration":"none", color:"#45A29E"}}>{cart.length > 0 ? `Cart(${cart.length})` : `Cart`}</Button>
@@ -48,7 +43,6 @@ function Cart({cart, totalPrice, setTotalPrice, setCart}) {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
           <CheckoutButton price={totalPrice} setTotalPrice={setTotalPrice} setCart={setCart}/>
-          {/* <Button onClick={(e)=> handleOrder(e, cart)} variant="primary">Checkout</Button> */}
         </Modal.Footer>
       </Modal>
     </>

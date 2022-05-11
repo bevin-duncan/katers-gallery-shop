@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import { Button, NavItem } from "react-bootstrap";
 import  Cart  from "./Cart.js";
+// import "./logo.png";
 
 function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, totalPrice, setTotalPrice, setCart }) {
 
@@ -19,9 +20,11 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
   
 
   return ( 
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-black">
       <div className="container-fluid">
-        <a className="navbar-brand" href="https://www.peterstaker.com"> K A T E R</a>
+        <a className="navbar-brand"> 
+        <img src="./logo.png" width="400" height="100" alt=""/>
+        </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -32,8 +35,9 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
                   to="/"
                   exact
                   className="nav-link"
+                  style={{color: "white"}}
                 >
-                  Gallery
+                  GALLERY
                 </NavLink> 
               </NavItem>
               <NavItem>
@@ -41,16 +45,17 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
                   to="/shop"
                   exact
                   className="nav-link"
+                  style={{color: "white"}}
                 >
-                  Merch
+                  MERCH
                 </NavLink>
               </NavItem>
               <NavItem>
                 
                  <a data-tf-popup="w6CMsz3F" data-tf-iframe-props="title=Kater.com Contact template TG (copy)" data-tf-medium="snippet"
-                  className="nav-link"
+                  className="nav-link" style={{color: "white"}}
                 >
-                  Contact
+                  CONTACT
                   </a>
               </NavItem>
               {user && user.admin ?
@@ -59,8 +64,9 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
                     to="/admin"
                     exact
                     className="nav-link"
+                    style={{color: "white"}}
                   >
-                    Admin
+                    ADMIN
                   </NavLink>
                 </NavItem>
               : null}

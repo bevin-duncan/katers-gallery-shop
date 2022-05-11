@@ -23,7 +23,7 @@ function handleAddForm(e, showAddForm){
         <div>
             <br></br>
             <div> 
-                <Button variant="primary" onClick={(e) => handleAddForm(e, showAddForm)}>Add Product</Button>
+                <Button variant="primary" onClick={(e) => handleAddForm(e, showAddForm)} style={{ marginLeft: "50%"}}>Add Product</Button>
             </div>
             <div>
                 {showAddForm && <AddProduct products={products} setProducts={setProducts}/>}

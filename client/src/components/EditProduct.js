@@ -4,7 +4,7 @@ import ProductsCard from "./ProductsCard"
 import { Button } from "react-bootstrap"
 
 function EditProduct({ product, products, setProducts }) {
-    let history = useHistory();
+    const history = useHistory("");
 
     const [prodFormData, setProdFormData] = useState ({ 
         name: product.name,
@@ -47,7 +47,7 @@ function EditProduct({ product, products, setProducts }) {
                 return product;
             }))
         })
-        history.push("/admin")
+        history.push("/shop")
     }
 
     return (
