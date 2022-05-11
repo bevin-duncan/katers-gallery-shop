@@ -88,3 +88,9 @@ nav{
 .nav-link-active {
   color: #45A29E;
 } 
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
