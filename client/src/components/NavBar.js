@@ -20,7 +20,7 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
   
 
   return ( 
-    <nav className="navbar navbar-expand-lg navbar-light bg-black">
+    <nav className="navbar navbar-expand-lg navbar-light bg-#0B0B0B">
       <div className="container-fluid">
         <a className="navbar-brand"> 
         <img src="./logo.png" width="400" height="100" alt=""/>

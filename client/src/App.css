@@ -3,7 +3,7 @@
 }
 
 .App, body{
-  background-color: black;
+  background-color: #0B0B0B;
   margin-top: 25px
 }
 
@@ -39,7 +39,7 @@ nav{
   width: 100%;
   object-fit: contain;
 }
- 
+ @media screen and (min-width: 600px) {
 .gallery-img:hover {
   margin-top:8px;
   vertical-align: middle;
@@ -47,7 +47,7 @@ nav{
   position: flex;
   transition: transform 0.25s ease;
 }
-
+ }
 
 .gallery-container {
   padding-top: 50px;
@@ -81,7 +81,7 @@ nav{
 }
 
 .container-fluid {
-  background-color: black;
+  background-color: #0B0B0B;
   color: white
 }
 
