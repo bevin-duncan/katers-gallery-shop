@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Card, Modal, Container, Button} from "react-bootstrap"
 
 function AddProduct({ products, setProducts }) {
   
@@ -65,9 +66,12 @@ function AddProduct({ products, setProducts }) {
     }
   
     return (
-      <div className="add-form">
+
+      <Container style={{width: "500px"}}>
+      <Card >
+        <Card.Body >
       <div className="background">
-          <div className="form-border center-content">
+          <div className="form-border center-content" >
             <div className="ui grid">
               <form 
                   className="ui two fields form center"
@@ -78,7 +82,7 @@ function AddProduct({ products, setProducts }) {
                       <ul className="errors">- {error}</ul>
                     ))}
                   </div>
-                <label htmlFor="name">Product Name:</label>
+                <label htmlFor="name">Product Name: </label>
                 <input
                   name="name"
                   type="text"
@@ -86,7 +90,8 @@ function AddProduct({ products, setProducts }) {
                   value={formData.name}
                   onChange={(e) => handleChange(e)}
                 />
-                 <label htmlFor="image">Product Image:</label>
+                <br></br>
+                 <label htmlFor="image">Product Image: </label>
                 <input
                   name="image"
                   type="text"
@@ -94,7 +99,8 @@ function AddProduct({ products, setProducts }) {
                   value={formData.image}
                   onChange={(e) => handleChange(e)}
                 />
-                <label htmlFor="description">Product Description:</label>
+                <br></br>
+                <label htmlFor="description">Product Description: </label>
                 <input
                   name="description"
                   type="text"
@@ -102,7 +108,8 @@ function AddProduct({ products, setProducts }) {
                   value={formData.description}
                   onChange={(e) => handleChange(e)}
                 />
-                <label htmlFor="price">Price:</label>
+                <br></br>
+                <label htmlFor="price">Price: </label>
                 <input
                   name="price"
                   type="number"
@@ -110,6 +117,7 @@ function AddProduct({ products, setProducts }) {
                   value={formData.price}
                   onChange={(e) => handleChange(e)}
                 />
+                <br></br>
                 <label>Quantity:</label>
                 <input
                   name="quantity"
@@ -118,7 +126,8 @@ function AddProduct({ products, setProducts }) {
                   value={formData.quantity}
                   onChange={(e) => handleChange(e)}
                 />
-                 <label>SKU Number:</label>
+                <br></br>
+                 <label>SKU Number: </label>
                 <input
                   name="sku"
                   type="text"
@@ -128,12 +137,15 @@ function AddProduct({ products, setProducts }) {
                 />
                 <br></br>
                 <br></br>
-                <button className="ui submit button center" type="submit">Create</button>
+                <Button version="primary" type="submit">Create</Button>
               </form>
             </div>
           </div>
         </div>
-        </div>
+        </Card.Body>
+        </Card>
+        </Container>
+        
     )
   }
   

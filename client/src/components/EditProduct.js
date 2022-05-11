@@ -1,6 +1,7 @@
 import React,{ useState } from 'react'
 import { useHistory } from "react-router-dom";
 import ProductsCard from "./ProductsCard"
+import { Button } from "react-bootstrap"
 
 function EditProduct({ product, products, setProducts }) {
     let history = useHistory();
@@ -113,7 +114,7 @@ function EditProduct({ product, products, setProducts }) {
                     />
                 </div>
             </div>
-            <button className="ui submit green button center" type="submit">Submit</button>
+            <Button version="primary" type="submit">Submit</Button>
         </form>
     );
 }
