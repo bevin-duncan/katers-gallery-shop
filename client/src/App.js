@@ -55,7 +55,8 @@ useEffect(() => {
   return (
     <Router> 
       <div className="background">
-      <NavBar 
+      <NavBar
+        products={products} 
         setUser={setUser} 
         setIsAuthenticated={setIsAuthenticated}
         isAuthenticated={isAuthenticated}
@@ -86,7 +87,7 @@ useEffect(() => {
             products={products}
             user={user}
             />
-           } 
+          } 
           </Route>
 
           <Route path="/signup">

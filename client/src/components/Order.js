@@ -29,7 +29,7 @@ function Order({order, product}) {
                         <h5>Description: {product.description}</h5>
                         <h5>${product.price}</h5>
                         <h5>Quantity: 1</h5>
-                        <h5>SKU: {product.sku}</h5>
+                      
                 </Card.Text>
               </Card.Body>
             </Card> 

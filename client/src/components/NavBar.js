@@ -4,7 +4,7 @@ import { Button, NavItem } from "react-bootstrap";
 import  Cart  from "./Cart.js";
 
 
-function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, totalPrice, setTotalPrice, setCart }) {
+function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, totalPrice, setTotalPrice, setCart, product }) {
 
   const logout = () => {
     fetch('/logout',{
@@ -72,6 +72,7 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
               <div className="ms-auto" style={{display:"inline-flex"}}>
                 <NavItem>
                   <Cart
+                    product={product}
                     setCart={setCart} 
                     cart={cart}
                     totalPrice={totalPrice}

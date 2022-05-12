@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Text, Modal, Button, Card } from 'react-bootstrap';
 import CheckoutButton  from './CheckoutButton';
 
-function Cart({cart, totalPrice, setTotalPrice, setCart}) {
+function Cart({product, cart, totalPrice, setTotalPrice, setCart}) {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
   
 
   return (
@@ -31,15 +32,19 @@ function Cart({cart, totalPrice, setTotalPrice, setCart}) {
                   ${product.price}
                   <br/>
                   Quantity: 1
+                  
                 </Card.Text>
-                <Button variant="primary">Remove From Cart</Button>
+                {/* <Button variant="primary">Remove From Cart</Button> */}
               </Card.Body>
             </Card> 
+          
             )
           })}
         </Modal.Body>
 
         <Modal.Footer>
+          <div className="subtotal-price">Total: ${totalPrice}.00</div>
+          <br></br>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
           <CheckoutButton price={totalPrice} setTotalPrice={setTotalPrice} setCart={setCart}/>
         </Modal.Footer>

@@ -8,7 +8,7 @@ const CheckoutButton = ({price, setTotalPrice, setCart }) => {
     const history = useHistory("");
     const publishableKey = process.env.REACT_APP_STRIPE;
 
- useEffect(() => {
+useEffect(() => {
         getOrders();
     }, []);
 

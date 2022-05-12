@@ -4,7 +4,7 @@ import AdminProdCard from "./AdminProdCard"
 import {Col, Row, Container, Button} from "react-bootstrap"
 
 function AdminProds({products, setProducts}) {
-   
+
 
     const [showAddForm, setShowAddForm] = useState(false)
 
