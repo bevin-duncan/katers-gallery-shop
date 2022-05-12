@@ -94,7 +94,7 @@ function AddProduct({ products, setProducts }) {
                   onChange={(e) => handleChange(e)}
                 />
                 <br></br>
-                 <label htmlFor="image">Product Image: </label>
+                <label htmlFor="image">Product Image: </label>
                 <input
                   name="image"
                   type="text"
@@ -130,7 +130,7 @@ function AddProduct({ products, setProducts }) {
                   onChange={(e) => handleChange(e)}
                 />
                 <br></br>
-                 <label>SKU Number: </label>
+                <label>SKU Number: </label>
                 <input
                   name="sku"
                   type="text"

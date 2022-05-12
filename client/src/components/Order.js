@@ -31,7 +31,6 @@ function Order({order, product}) {
                         <h5>Quantity: 1</h5>
                         <h5>SKU: {product.sku}</h5>
                 </Card.Text>
-                {/* <Button variant="primary">Remove From Cart</Button> */}
               </Card.Body>
             </Card> 
             )
@@ -40,7 +39,6 @@ function Order({order, product}) {
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
-          {/* <Button variant="primary">Checkout</Button> */}
         </Modal.Footer>
       </Modal>
     </>

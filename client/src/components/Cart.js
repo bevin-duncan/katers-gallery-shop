@@ -8,7 +8,6 @@ function Cart({cart, totalPrice, setTotalPrice, setCart}) {
   const handleShow = () => setShowModal(true);
   
 
-
   return (
     <>
       <Button variant="link" onClick={handleShow} style={{"text-decoration":"none", color:"#45A29E"}}>{cart.length > 0 ? `Cart(${cart.length})` : `Cart`}</Button>

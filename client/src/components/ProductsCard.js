@@ -11,11 +11,6 @@ const handleAddToCart = (e, product) => {
   setTotalPrice(totalPrice + product.price)
 } 
 
-
-// t.integer "quantity"
-// t.bigint "order_id", null: false
-// t.bigint "product_id", null: false
-
   return (
     <Card>
         <Card.Img variant="top" src={product.image} style={{height:"396px", "object-fit":"contain"}}/>
@@ -26,7 +21,7 @@ const handleAddToCart = (e, product) => {
             <br/>
             ${product.price}
             <br/>
-             {product.quantity ? "In Stock" : null}
+            {product.quantity ? "In Stock" : null}
           </Card.Text>
           <Button variant="primary" style={{width:"94%", position:"absolute", bottom:"10px", left:"3%"}} onClick={(e) => handleAddToCart(e, product)}>Add To Cart</Button>
         </Card.Body>

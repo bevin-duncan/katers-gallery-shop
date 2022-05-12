@@ -9,8 +9,8 @@ function AdminPage({products, setProducts}) {
 console.log("ADMINPAGE:", products);
   return (
     <div>
-       <AdminProds products={products} setProducts={setProducts}/>
-       <p>Admin Page</p>
+      <AdminProds products={products} setProducts={setProducts}/>
+      <p>Admin Page</p>
     </div>
   )
 }

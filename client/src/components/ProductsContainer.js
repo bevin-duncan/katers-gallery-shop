@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-// import NavBar from "./NavBar"
 import ProductsCard from "./ProductsCard"
-import NavBar from "./NavBar"
 import {Col, Row, Container} from "react-bootstrap"
 
 function ProductsContainer({ user, cart, setCart, totalPrice, setTotalPrice }) {
   const [products, setProducts] = useState([]);
-  // const [cart, setCart] = useState([]);
+
   
   useEffect(() => {
     getProds();

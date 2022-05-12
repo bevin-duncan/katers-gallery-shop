@@ -149,7 +149,7 @@ import { useHistory } from "react-router-dom"
                 onChange={(e) => handleChange(e)}
               />
               <br></br>
-               <label>City:</label>
+              <label>City:</label>
               <input
                 name="city"
                 type="text"
@@ -158,7 +158,7 @@ import { useHistory } from "react-router-dom"
                 onChange={(e) => handleChange(e)}
               />
               <br></br>
-               <label>State:</label>
+              <label>State:</label>
               <input
                 name="state"
                 type="text"
@@ -167,7 +167,7 @@ import { useHistory } from "react-router-dom"
                 onChange={(e) => handleChange(e)}
               />
               <br></br>
-               <label>Zip:</label>
+              <label>Zip:</label>
               <input
                 name="zip"
                 type="number"
@@ -186,7 +186,7 @@ import { useHistory } from "react-router-dom"
                 onChange={(e) => handleChange(e)}
               />
               <br></br>
-               <label>Email:</label>
+              <label>Email:</label>
               <input
                 name="email"
                 type="text"

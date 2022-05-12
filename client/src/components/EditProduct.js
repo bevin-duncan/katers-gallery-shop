@@ -16,8 +16,8 @@ function EditProduct({ product, products, setProducts }) {
 
     function handleChange(e) {
         setProdFormData({
-          ...prodFormData,
-          [e.target.name]: e.target.value,
+        ...prodFormData,
+        [e.target.name]: e.target.value,
         });
     }
 
@@ -31,7 +31,7 @@ function EditProduct({ product, products, setProducts }) {
             price: prodFormData.price,
             quantity: prodFormData.quantity,
             sku: prodFormData.sku
-       }
+        }
 
         fetch(`/products/${product.id}`, {
             method: "PATCH",

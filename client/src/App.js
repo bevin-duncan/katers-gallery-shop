@@ -5,7 +5,6 @@ import Login from "./components/Login"
 import SignUp from "./components/SignUp"
 import NavBar from "./components/NavBar"
 import AdminPage from "./components/AdminPage"
-import Contact from "./components/Contact"
 import PhotoGallery from "./components/PhotoGallery/PhotoGallery"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,20 +29,6 @@ const getProds = () => {
   .then(setProducts);
 }
 
-// const authorize = () => {
-//   fetch('/authorize')
-//   .then((res) => {
-//     if (res.ok) {
-//       res.json()
-//       .then((user) => {
-//         setIsAuthenticated(true);
-//         setUser(user);
-//       });
-//     }
-//     else {
-//       console.log("We received errors...")
-//     }
-// }
 
 useEffect(() => {
   fetch('/authorize')
@@ -66,8 +51,6 @@ useEffect(() => {
     setUser([...user, newUser])
   }
 
-  // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
-  // if (!user) return <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
   return (
     <Router> 
@@ -105,25 +88,6 @@ useEffect(() => {
             />
            } 
           </Route>
-
-          <Route exact path="/contact">
-            <Contact
-              setUser={setUser} 
-              setIsAuthenticated={setIsAuthenticated}
-              user={user}
-            />
-          </Route>
-
-          {/* <Route exact path="/cart">
-            <Cart
-              setCart={setCart} 
-              cart={cart}
-              setIsAuthenticated={setIsAuthenticated}
-              user={user}
-              totalPrice={totalPrice}
-              setTotalPrice={setTotalPrice}
-            />
-          </Route> */}
 
           <Route path="/signup">
             <SignUp

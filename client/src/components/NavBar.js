@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import { Button, NavItem } from "react-bootstrap";
 import  Cart  from "./Cart.js";
-// import "./logo.png";
+
 
 function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, totalPrice, setTotalPrice, setCart }) {
 
@@ -51,8 +51,7 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
                 </NavLink>
               </NavItem>
               <NavItem>
-                
-                 <a data-tf-popup="w6CMsz3F" data-tf-iframe-props="title=Kater.com Contact template TG (copy)" data-tf-medium="snippet"
+                <a data-tf-popup="w6CMsz3F" data-tf-iframe-props="title=Kater.com Contact template TG (copy)" data-tf-medium="snippet"
                   className="nav-link" style={{color: "white"}}
                 >
                   CONTACT
