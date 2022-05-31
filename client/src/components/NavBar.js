@@ -17,7 +17,7 @@ function NavBar({ setIsAuthenticated, isAuthenticated, setUser, user, cart, tota
   }
 
 
-  
+
 
   return ( 
     <nav className="navbar navbar-expand-lg navbar-light bg-#0B0B0B">
