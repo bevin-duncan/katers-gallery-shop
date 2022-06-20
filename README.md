@@ -1,3 +1,17 @@
+React-Rails stack gallery and e-commerce site for street artist Kater the Alchemist
+Front: 
+npm install 
+npm start
+
+Back:
+bundle Install
+rails s
+
+Admin Login: 
+Admin
+password1
+
+
 # Project Template: React/Rails API
 
 ## Description
