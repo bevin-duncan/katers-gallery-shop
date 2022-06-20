@@ -4,12 +4,12 @@ npm install
 npm start
 
 Back:
-bundle Install
+bundle install
 rails s
 
 Admin Login: 
-Admin
-password1
+UN: Admin1
+PW: password
 
 
 # Project Template: React/Rails API
